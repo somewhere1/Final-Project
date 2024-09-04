@@ -57,7 +57,40 @@ By focusing on these key columns, we will conduct a thorough analysis to determi
 
 <iframe src="assets/10-80-enrollment.html" width=800 height=600 frameBorder=0></iframe>
 
----
+**Data Clean**
+### Data Cleaning Steps:
+
+During the data cleaning process, several key steps were taken to ensure the dataset was suitable for analysis and model building. These steps involved handling missing values, transforming data, and preparing it for the prediction tasks. The dataset used for analysis consists of player-level performance metrics across various game attributes.
+
+#### Steps Taken:
+
+1. **Removing Irrelevant Columns**:
+   - Initially, irrelevant columns that did not contribute to the analysis were dropped. Columns like `url` and `year` were removed as they are identifiers and do not provide meaningful information for predicting player performance.
+   
+2. **Dropping Team Summary Rows**:
+   - The dataset originally included rows representing team-level summaries alongside player-level data. Since our analysis focuses on individual player performance, these team-level rows were dropped to avoid redundant or conflicting information in the analysis.
+   
+3. **Retaining Key Performance Metrics**:
+   - Key columns such as `kills`, `deaths`, `assists`, `damagetochampions`, `totalgold`, and time-based statistics (`goldat10`, `csat15`, etc.) were retained for analysis, as these variables provide essential information on player performance across different game stages.
+
+#### Final Cleaned Data:
+
+After the above steps, the dataset was saved to a new file (`cleaned_lol_data_players_only.csv`), which contains only the player-specific data, with the relevant features for analysis. Here is a sample of the cleaned dataset:
+
+```python
+print(cleaned_lol_data.head())
+```
+
+| gameid              | teamname           | position | result | kills | deaths | assists | gamelength | damagetochampions | totalgold | ... | csdiffat25 |
+|---------------------|--------------------|----------|--------|-------|--------|---------|------------|-------------------|-----------|-----|------------|
+| ESPORTSTMNT01_2690210 | BRION Challengers | top      | 0      | 2     | 3      | 2       | 1713       | 15768.0           | 10934     | ... | 9          |
+| ESPORTSTMNT01_2690210 | BRION Challengers | jng      | 0      | 2     | 5      | 6       | 1713       | 11765.0           | 9138      | ... | -28        |
+| ESPORTSTMNT01_2690210 | BRION Challengers | mid      | 0      | 2     | 2      | 3       | 1713       | 14258.0           | 9715      | ... | -5         |
+| ESPORTSTMNT01_2690210 | BRION Challengers | bot      | 0      | 2     | 4      | 2       | 1713       | 11106.0           | 10605     | ... | -85        |
+| ESPORTSTMNT01_2690210 | BRION Challengers | sup      | 0      | 1     | 5      | 6       | 1713       | 3663.0            | 6678      | ... | 12         |
+
+This cleaned dataset contains crucial information for further analysis, including player statistics, game results, and performance metrics at different time points in the game.
+
 
 ## Assessment of Missingness
 
