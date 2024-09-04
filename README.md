@@ -69,7 +69,7 @@ During the data cleaning process, several key steps were taken to ensure the dat
    
 2. **Dropping Team Summary Rows**:
    - The dataset originally included rows representing team-level summaries alongside player-level data. Since our analysis focuses on individual player performance, these team-level rows were dropped to avoid redundant or conflicting information in the analysis.
-   
+
 3. **Retaining Key Performance Metrics**:
    - Key columns such as `kills`, `deaths`, `assists`, `damagetochampions`, `totalgold`, and time-based statistics (`goldat10`, `csat15`, etc.) were retained for analysis, as these variables provide essential information on player performance across different game stages.
 
@@ -91,7 +91,10 @@ print(cleaned_lol_data.head())
 
 This cleaned dataset contains crucial information for further analysis, including player statistics, game results, and performance metrics at different time points in the game.
 
-
+**Univariate Analysis**
+We permformed univariate analysis on the ['totalgold', 'damagetochampions', 'total cs'] statistics in the dataset
+<iframe src="assets/total cs_distribution.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/totalgold_distribution.html" width=800 height=600 frameBorder=0></iframe>
 ## Assessment of Missingness
 
 Here's what a Markdown table looks like. Note that the code for this table was generated _automatically_ from a DataFrame, using
